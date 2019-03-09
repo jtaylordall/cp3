@@ -18,14 +18,6 @@ var app = new Vue({
       });
     },
     filteredTodos() {
-      if (this.show === 'active')
-      return this.todos.filter(item => {
-        return !item.completed;
-      });
-      if (this.show === 'completed')
-      return this.todos.filter(item => {
-        return item.completed;
-      });
       return this.todos;
     },
   },
@@ -60,20 +52,6 @@ var app = new Vue({
       var index = this.todos.indexOf(item);
       if (index > -1)
       this.todos.splice(index,1);
-    },
-    showAll() {
-      this.show = 'all';
-    },
-    showActive() {
-      this.show = 'active';
-    },
-    showCompleted() {
-      this.show = 'completed';
-    },
-    deleteCompleted() {
-      this.todos = this.todos.filter(item => {
-        return !item.completed;
-      });
     },
     dragItem(item) {
       this.drag = item;

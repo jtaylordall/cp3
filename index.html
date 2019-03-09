@@ -24,45 +24,55 @@
 </head>
 
 <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-info bg-info">
+    <h1 class="text-light">Contacts</h1>
+  </nav>
+  <br><br><br><br>
   <div id="app">
-    <h1>Contacts</h1>
-
-    <br>
+    <h2 class="text-info">Add A New Contact</h2>
     <!--Creates an addItem object-->
     <form v-on:submit.prevent="addItem">
       <div class="form-inline">
-        <input class="form-control form-inline mr-md-1" class="form-text text-muted" type="text" v-model="addedName" placeholder="Name">
+        <input class="form-control form-inline mr-md-2" type="text" v-model="addedName" placeholder="Name">
         <input class="form-control form-inline mr-md-2" type="text" v-model="addedPhone" placeholder="Phone">
         <input class="form-control form-inline mr-md-2" type="text" v-model="addedEmail" placeholder="Email">
         <input class="form-control form-inline mr-md-2" type="text" v-model="addedAddress" placeholder="Address">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add</button>
       </div>
     </form>
 
     <div class="controls">
-      <button class="btn btn-outline-success my-sm-0" v-on:click="sortContacts">Sort By Name</button>
+      <button class="btn btn-outline-info my-sm-0" v-on:click="sortContacts">Sort By Name</button>
     </div>
     <br>
 
     <!--Adds item to list-->
-    <div class="d-flex">
-      <ul>
-        <li class="listo" v-for="item in filteredTodos" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+    <ul>
+      <li class="listo bg-info" v-for="item in filteredTodos" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
 
-          <!--Checkbox-->
-          <!--Added item is bound to item class-->
-          <label v-bind:class="{ completed: item.completed }">{{ item.name }}<br>Phone: {{item.phone}}<br>Email: {{item.email}}<br>Address: {{item.address}}</label>
+        <!--Checkbox-->
+        <!--Added item is bound to item class-->
+        <div class="col-sm-10">
 
-          <!--Delete item button-->
-          <button class="btn btn-outline-danger" v-on:click="deleteItem(item)" class="delete">Delete</button>
-        </li>
-      </ul>
-    </div>
+          <label v-bind:class="{ completed: item.completed }">
+            <h3>{{ item.name }}</h3>
+            <strong>Phone:</strong> {{item.phone}}<br>
+            <strong>Email:</strong> {{item.email}}<br>
+            <strong>Address:</strong> {{item.address}}
+          </label>
+        </div>
+
+        <!--Delete item button-->
+        <div class="col-sm-2">
+          <button class="btn btn-outline-light delete" v-on:click="deleteItem(item)">Delete</button>
+        </div>
+      </li>
+    </ul>
   </div>
 
 
   <!-- Footer -->
-  <footer class="page-footer font-small fixed-bottom special-color-dark pt-5">
+  <footer class="page-footer font-small fixed-bottom pt-5">
 
     <!-- Footer Elements -->
     <div class="container-fluid">
