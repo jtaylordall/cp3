@@ -33,16 +33,16 @@
     <!--Creates an addItem object-->
     <form v-on:submit.prevent="addItem">
       <div class="form-inline">
-        <input class="form-control form-inline mr-md-2" type="text" v-model="addedName" placeholder="Name">
-        <input class="form-control form-inline mr-md-2" type="text" v-model="addedPhone" placeholder="Phone">
-        <input class="form-control form-inline mr-md-2" type="text" v-model="addedEmail" placeholder="Email">
-        <input class="form-control form-inline mr-md-2" type="text" v-model="addedAddress" placeholder="Address">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add</button>
+        <input class="form-control form-control-sm form-inline mr-md-2" type="text" v-model="addedName" placeholder="Name">
+        <input class="form-control form-control-sm form-inline mr-md-2" type="text" v-model="addedPhone" placeholder="Phone">
+        <input class="form-control form-control-sm form-inline mr-md-2" type="text" v-model="addedEmail" placeholder="Email">
+        <input class="form-control form-control-sm form-inline mr-md-2" type="text" v-model="addedAddress" placeholder="Address">
+        <button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit">Add</button>
       </div>
     </form>
 
     <div class="controls">
-      <button class="btn btn-outline-info my-sm-0" v-on:click="sortContacts">Sort By Name</button>
+      <button class="btn btn-sm btn-outline-info my-sm-0" v-on:click="sortContacts">Sort By Name</button>
     </div>
     <br>
 
